@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDeviceTypesTable extends Migration
+class CreateWarrantiesTable extends Migration
 {
     /**
     * Run the migrations.
@@ -13,11 +13,12 @@ class CreateDeviceTypesTable extends Migration
     */
     public function up()
     {
-        Schema::create('device_types', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('warranties', function (Blueprint $table) {
+            $table->tinyIncrements('id');
             $table->timestamps();
-            $table->string('name', 45);
-            $table->unique(["name"], 'name_UNIQUE');
+            $table->string('description', 50);
+            $table->date('start_date');
+            $table->date('end_date');
         });
     }
 
@@ -28,6 +29,6 @@ class CreateDeviceTypesTable extends Migration
     */
     public function down()
     {
-        Schema::dropIfExists('device_types');
+        Schema::dropIfExists('warranties');
     }
 }

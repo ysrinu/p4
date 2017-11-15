@@ -7,26 +7,24 @@ use Illuminate\Database\Migrations\Migration;
 class CreateLocationsTable extends Migration
 {
     /**
-    * Run the migrations.
-    *
-    * @return void
-    */
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('locations', function (Blueprint $table) {
-            $table->increments('id');
+            $table->tinyIncrements('id');
             $table->timestamps();
-            $table->string('name', 10)->nullable();
-            $table->string('description', 191)->nullable();
-            $table->unique(["name"], 'name_UNIQUE');
+            $table->string('description', 50);
         });
     }
 
     /**
-    * Reverse the migrations.
-    *
-    * @return void
-    */
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('locations');

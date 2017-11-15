@@ -41,3 +41,13 @@ Route::get('/debug', function () {
 
     dump($debug);
 });
+
+Route::get('/assets/{id?}', 'AssetController@index');
+Route::get('/assetrepairs/{id?}', 'AssetRepairController@index');
+Route::get('/computers/{id?}', 'ComputerController@index');
+Route::get('/computertypes/{id?}', 'ComputerTypeController@index');
+Route::get('/groups/{id?}', 'GroupController@index');
+Route::get('/locations/{id?}', 'LocationController@index');
+Route::get('/outofservicecodes/{id?}', 'OutOfServiceCodeController@index');
+Route::get('/vendors/{id?}', 'VendorController@index');
+Route::get('/warranties/{id?}', 'WarrantyController@index');
