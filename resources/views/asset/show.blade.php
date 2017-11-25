@@ -6,6 +6,7 @@ View Asset
 
 
 @section('content')
+<?php dump($result) ?>
 <section class="engine"><a href="/">bootstrap modal popup</a></section><section class="mbr-section form1 cid-qAUFMxQIkB" id="form1-3" data-rv-view="44">
     <div class="container">
         <div class="row justify-content-center">

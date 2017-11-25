@@ -62,17 +62,23 @@
 	    </nav>
 	</section>
 
-	@if(session('message'))
-	    <div class='alert'>{{ session('message') }}</div>
-	@endif
+
 
 	<section>
 		@yield('content')
 	</section>
 
+<section>
+	<? php dump(); >
+		@if(session('alert'))
+		    <div class='alert'>{{ session('alert') }}</div>
+		@endif
+		</section>
+
 	<footer>
 		&copy; {{ date('Y') }}
 	</footer>
+
 
     @stack('body')
 
@@ -85,6 +91,15 @@
     <script src="/webassets/touch-swipe/jquery.touch-swipe.min.js"></script>
     <script src="/webassets/theme/js/script.js"></script>
     <script src="/webassets/formoid/formoid.min.js"></script>
-
+ <script>
+ showComputerForm();
+ function showComputerForm() {
+     if (document.getElementById("is_computer").checked == true) {
+         document.getElementById("computer_form").style.display = "block";
+     } else {
+         document.getElementById("computer_form").style.display = "none";
+     }
+ }
+ </script>
 </body>
 </html>
