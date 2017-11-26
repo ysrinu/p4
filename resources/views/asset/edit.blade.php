@@ -250,6 +250,9 @@ Edit Asset
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Save</button>
                         </div>
+                        <div class="col-sm-10">
+                            <a class="btn btn-secondary" href="{{ URL::to('asset/'. $result->id.'') }}">Cancel</a>
+                        </div>
                     </div>
                 </div>
             </form>
