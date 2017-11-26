@@ -11,9 +11,9 @@ class Asset extends Model
         return $this->hasMany('App\AssetRepair');
     }
 
-    public function computers()
+    public function computer()
     {
-        return $this->hasMany('App\Computer');
+        return $this->hasOne('App\Computer');
     }
 
 }

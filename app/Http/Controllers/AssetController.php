@@ -22,6 +22,8 @@ class AssetController extends Controller
         $result = Asset::findOrFail($n);
         //dump($result->toArray());
 
+        //dump($result->computer);
+
         return view('asset.show')->with(['result' => $result]);
     }
 
@@ -36,6 +38,8 @@ class AssetController extends Controller
     {
         $this->validate($request, [
             'owner' => 'required|max:50',
+            'description' => 'max:50',
+            'notes' => 'max:191',
             'purchase_price' => 'required|numeric',
             'purchase_date' => 'required|date',
             'serial_number' => 'required|alphanum',
@@ -71,64 +75,71 @@ class AssetController extends Controller
     }
 
     public function edit($id)
-{
-    $result = Asset::find($id);
+    {
+        $result = Asset::find($id);
 
-    if (!$result) {
-        return redirect('/asset')->with('alert', 'Asset not found.');
+        if (!$result) {
+            return redirect('/asset')->with('alert', 'Asset not found.');
+        }
+
+        //$ar = Asset::find($id)->assetrepairs;
+        //dump($ar);
+        //dump('$result is:');
+        //dump($result);
+        //dump('$result->assetrepairs is:');
+        //dump($result->assetrepairs);
+        //dump($result->computers);
+        return view('asset.edit')->with(['result' => $result]);
     }
 
-    return view('asset.edit')->with(['result' => $result]);
-}
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'owner' => 'required|max:50',
+            'description' => 'max:50',
+            'notes' => 'max:191',
+            'purchase_price' => 'required|numeric',
+            'purchase_date' => 'required|date',
+            'serial_number' => 'required|alphanum|max:50',
+            'estimated_life_months' => 'required|numeric',
+            'tag' => 'required|alphanum|max:10',
+            'scheduled_retirement_year' => 'required|numeric',
+            'assigned_to' => 'required|alpha|max:30',
+            'assigned_date' => 'required|date',
+        ]);
 
-public function update(Request $request, $id)
-{
-    $this->validate($request, [
-        'owner' => 'required|max:50',
-        'owner' => 'max:50',
-        'notes' => 'max:191',
-        'purchase_price' => 'required|numeric',
-        'purchase_date' => 'required|date',
-        'serial_number' => 'required|alphanum|max:50',
-        'estimated_life_months' => 'required|numeric',
-        'tag' => 'required|alphanum|max:10',
-        'scheduled_retirement_year' => 'required|numeric',
-        'assigned_to' => 'required|alpha|max:30',
-        'assigned_date' => 'required|date',
-    ]);
+        $asset = Asset::find($id);
 
-    $asset = Asset::find($id);
+        $asset->owner = $request->input('owner');
+        $asset->purchase_price = $request->input('purchase_price');
+        $asset->purchase_date = $request->input('purchase_date');
+        $asset->serial_number = $request->input('serial_number');
+        $asset->estimated_life_months = $request->input('estimated_life_months');
+        $asset->assigned_to = $request->input('assigned_to');
+        $asset->assigned_date = $request->input('assigned_date');
+        $asset->tag = $request->input('tag');
+        $asset->scheduled_retirement_year = $request->input('scheduled_retirement_year');
+        $asset->group_id = 1;
+        $asset->location_id = 1;
+        $asset->warranty_id = 1;
+        $asset->vendor_id = 1;
+        $asset->out_of_service_id = 1;
+        $asset->is_computer = $request->has('is_computer');
+        $asset->save();
 
-    $asset->owner = $request->input('owner');
-    $asset->purchase_price = $request->input('purchase_price');
-    $asset->purchase_date = $request->input('purchase_date');
-    $asset->serial_number = $request->input('serial_number');
-    $asset->estimated_life_months = $request->input('estimated_life_months');
-    $asset->assigned_to = $request->input('assigned_to');
-    $asset->assigned_date = $request->input('assigned_date');
-    $asset->tag = $request->input('tag');
-    $asset->scheduled_retirement_year = $request->input('scheduled_retirement_year');
-    $asset->group_id = 1;
-    $asset->location_id = 1;
-    $asset->warranty_id = 1;
-    $asset->vendor_id = 1;
-    $asset->out_of_service_id = 1;
-    $asset->is_computer = $request->has('is_computer');
-    $asset->save();
+        return redirect('/asset/'.$id)->with('alert', 'Your changes were saved.');
+    }
 
-    return redirect('/asset/'.$id)->with('alert', 'Your changes were saved.');
-}
+    public function delete($id)
+    {
+        $result = Asset::find($id);
 
-public function delete($id)
-{
-$result = Asset::find($id);
+        if (!$result) {
+            return redirect('/asset')->with('alert', 'Asset not found.');
+        }
 
-if (!$result) {
-    return redirect('/asset')->with('alert', 'Asset not found.');
-}
-
-$result->delete();
-return redirect('/')->with('alert', 'Asset '.$result->id.' Deleted.');
-}
+        $result->delete();
+        return redirect('/')->with('alert', 'Asset '.$result->id.' Deleted.');
+    }
 
 }
