@@ -28,12 +28,6 @@
 
 		<!-- Links -->
 		<ul class="navbar-nav">
-			<li class="nav-item">
-				<a class="nav-link" href="#">Link 1</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Link 2</a>
-			</li>
 
 			<!-- Dropdown -->
 			<li class="nav-item dropdown">
@@ -61,23 +55,24 @@
 	<br>
 
 	<div class="container">
-
-		@if(session('alert'))
-		<div class='alert'>{{ session('alert') }}</div>
-		@endif
+		<div class="row justify-content-center">
+			@if(session('alert'))
+			<div class='alert alert-success' role="alert">{{ session('alert') }}</div>
+			@endif
 		</div>
+	</div>
 
-		<section>
+	<section>
 		@yield('content')
-		</section>
+	</section>
 
-		<section>
+	<section>
 
 
 		@stack('body')
 
 		<footer>
-		&copy; {{ date('Y') }}
+			&copy; {{ date('Y') }}
 		</footer>
 
 		<script>
@@ -89,6 +84,15 @@
 				document.getElementById("computer_form").style.display = "none";
 			}
 		}
+
+		showOutofserviceForm();
+		function showOutofserviceForm() {
+			if (document.getElementById("is_out_of_service").checked == true) {
+				document.getElementById("outofservice_form").style.display = "block";
+			} else {
+				document.getElementById("outofservice_form").style.display = "none";
+			}
+		}
 		</script>
-		</body>
-		</html>
+	</body>
+	</html>

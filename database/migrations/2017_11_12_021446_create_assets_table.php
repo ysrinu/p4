@@ -27,7 +27,7 @@ class CreateAssetsTable extends Migration
             $table->string('notes', 191)->nullable();
             $table->unsignedTinyInteger('estimated_life_months');
             $table->boolean('is_out_of_service')->default('0');
-            $table->unsignedTinyInteger('out_of_service_id');
+            $table->unsignedTinyInteger('out_of_service_id')->nullable();
             $table->date('out_of_service_date')->nullable();
             $table->unsignedTinyInteger('vendor_id');
             $table->string('assigned_to', 30);

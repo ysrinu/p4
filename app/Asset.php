@@ -16,4 +16,28 @@ class Asset extends Model
         return $this->hasOne('App\Computer');
     }
 
+    public function group()
+    {
+        return $this->belongsTo('App\Group');
+    }
+
+    public function location()
+    {
+        return $this->belongsTo('App\Location');
+    }
+
+    public function vendor()
+    {
+        return $this->belongsTo('App\Vendor');
+    }
+
+    public function warranty()
+    {
+        return $this->belongsTo('App\Warranty');
+    }
+
+    public function outofservicecode()
+    {
+        return $this->belongsTo('App\OutOfServiceCode','out_of_service_id');
+    }
 }
