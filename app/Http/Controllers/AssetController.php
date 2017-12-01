@@ -18,9 +18,7 @@ class AssetController extends Controller
         if (is_null($n)) {
             // Get all rows
             $result = Asset::all();
-            //dump($result->toArray());
             return view('asset.show')->with(['result' => $result]);
-            //return;
         }
 
         # Get row by id or
@@ -84,6 +82,8 @@ class AssetController extends Controller
             'assigned_date' => 'required|date',
             'group_id' => 'required|numeric',
             'location_id' => 'required|numeric',
+            'vendor_id' => 'required|numeric',
+            'warranty_id' => 'required|numeric',
         ]);
 
         if ($request->has('is_out_of_service')) {
@@ -180,7 +180,6 @@ class AssetController extends Controller
 
     public function update(Request $request, $id)
     {
-        dump($request);
 
         $this->validate($request, [
             'owner' => 'required|max:50',
@@ -196,6 +195,8 @@ class AssetController extends Controller
             'assigned_date' => 'required|date',
             'group_id' => 'required|numeric',
             'location_id' => 'required|numeric',
+            'vendor_id' => 'required|numeric',
+            'warranty_id' => 'required|numeric',
         ]);
 
         if ($request->has('is_out_of_service')) {
@@ -242,7 +243,7 @@ class AssetController extends Controller
         $asset->save();
 
         $computer = Computer::where('asset_id', '=', $id)->first();
-        //dump($computer);
+
         if ( $computer) {
             $computer->delete();    // delete any related computer record
         }
