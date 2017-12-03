@@ -13,7 +13,7 @@ Edit Asset
                 Edit Asset
             </h2>
         </div>
-        <form method='POST' action='/asset/{{ $result->id }}'>
+        <form method='POST' action='/asset/{{ $asset->id }}'>
             {{ method_field('put') }}
             {{ csrf_field() }}
 
@@ -23,7 +23,7 @@ Edit Asset
                 <div class="form-group row">
                     <div >
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <a class="btn btn-secondary" href="{{ URL::to('asset/'. $result->id.'') }}">Cancel</a>
+                        <a class="btn btn-secondary" href="{{ URL::to('asset/'. $asset->id.'') }}">Cancel</a>
                     </div>
                 </div>
             </div>

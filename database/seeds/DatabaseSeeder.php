@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
          $this->call(OutOfServiceCodesTableSeeder::class);
          $this->call(WarrantiesTableSeeder::class);
          $this->call(ComputerTypesTableSeeder::class);
-         $this->call(AssetsTableSeeder::class);
          $this->call(ComputersTableSeeder::class);
+         $this->call(AssetsTableSeeder::class);
          $this->call(AssetRepairsTableSeeder::class);
     }
 }
