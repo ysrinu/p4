@@ -22,14 +22,8 @@ Confirm Asset deletion: {{ $asset->id }}
                 <p class="bg-primary text-white">This asset has {{ count($asset->assetrepairs) }} repairs<a class="btn btn-info" href="{{ URL::to('assetrepairs/'. $asset->id) }}" target="_blank">View Repairs</a></p>
             </div>
             @endif
-            <dl class="row">
-                @foreach($asset->toArray() as $key => $value)
-                @if (gettype($value)!='array')
-                <dt class="col-sm-3">{{ $key }}</dt>
-                <dd class="col-sm-9">{{ $value }}</dd>
-                @endif
-                @endforeach
-            </dl>
+            
+            @include('asset.detail')
 
             <form method='POST' action='/asset/{{ $asset->id }}'>
                 {{ method_field('delete') }}

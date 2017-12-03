@@ -246,7 +246,8 @@ class AssetController extends Controller
                 return redirect('/asset')->with('alert', 'Asset '.$id.' is Not Found.');
             }
 
-            $asset->assetrepairs()->detach();
+            $asset->computer->delete();
+            $asset->delete();
 
             $asset->delete();
             return redirect('/')->with('alert', 'Asset '.$asset->id.' Deleted.');

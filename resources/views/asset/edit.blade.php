@@ -10,7 +10,7 @@ Edit Asset
     <div class="container">
         <div class="row justify-content-center">
             <h2>
-                Edit Asset
+                Edit Asset {{ $asset->id }}
             </h2>
         </div>
         <form method='POST' action='/asset/{{ $asset->id }}'>
