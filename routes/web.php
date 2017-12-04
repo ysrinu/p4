@@ -51,10 +51,10 @@ Route::get('/asset/{id?}/delete', 'AssetController@delete');
 Route::delete('/asset/{id}', 'AssetController@destroy');
 
 Route::get('/assetrepairs/{id?}', 'AssetRepairController@index');
-Route::get('/computers/{id?}', 'ComputerController@index');
-Route::get('/computertypes/{id?}', 'ComputerTypeController@index');
-Route::get('/groups/{id?}', 'GroupController@index');
-Route::get('/locations/{id?}', 'LocationController@index');
-Route::get('/outofservicecodes/{id?}', 'OutOfServiceCodeController@index');
-Route::get('/vendors/{id?}', 'VendorController@index');
-Route::get('/warranties/{id?}', 'WarrantyController@index');
+Route::get('/computer/{id?}', 'ComputerController@index');
+Route::get('/computertype/{id?}', 'ComputerTypeController@index');
+Route::get('/group/{id?}', 'GroupController@index');
+Route::get('/location/{id?}', 'LocationController@index');
+Route::get('/outofservicecode/{id?}', 'OutOfServiceCodeController@index');
+Route::get('/vendor/{id?}', 'VendorController@index');
+Route::get('/warranty/{id?}', 'WarrantyController@index');

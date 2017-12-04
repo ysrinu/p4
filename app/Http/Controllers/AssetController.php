@@ -26,7 +26,6 @@ class AssetController extends Controller
         # Get row by id or
         # Throw an exception if the lookup fails
         $asset = Asset::findOrFail($n);
-
         return view('asset.show')->with(['asset' => $asset]);
     }
 
@@ -246,8 +245,12 @@ class AssetController extends Controller
                 return redirect('/asset')->with('alert', 'Asset '.$id.' is Not Found.');
             }
 
-            $asset->computer->delete();
-            $asset->delete();
+            if ($asset->computer) {
+                $asset->computer->delete();
+                $asset->delete();
+            }
+
+            $asset->assetrepairs()->detach();
 
             $asset->delete();
             return redirect('/')->with('alert', 'Asset '.$asset->id.' Deleted.');

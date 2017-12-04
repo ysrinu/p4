@@ -152,7 +152,7 @@
             @endforeach
             @endif
         </select>
-        <a href="{{ URL::to('groups') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+        <a href="{{ URL::to('group') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
         @if($errors->get('group_id'))
         <ul class="alert alert-danger" role="alert">
             @foreach($errors->get('group_id') as $error)
@@ -173,7 +173,7 @@
             @endforeach
             @endif
         </select>
-        <a href="{{ URL::to('locations') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+        <a href="{{ URL::to('location') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
         @if($errors->get('location_id'))
         <ul class="alert alert-danger" role="alert">
             @foreach($errors->get('location_id') as $error)
@@ -194,7 +194,7 @@
             @endforeach
             @endif
         </select>
-        <a href="{{ URL::to('warranties') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+        <a href="{{ URL::to('warranty') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
         @if($errors->get('warranty_id'))
         <ul class="alert alert-danger" role="alert">
             @foreach($errors->get('warranty_id') as $error)
@@ -215,7 +215,7 @@
             @endforeach
             @endif
         </select>
-        <a href="{{ URL::to('vendors') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+        <a href="{{ URL::to('vendor') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
         @if($errors->get('vendor_id'))
         <ul class="alert alert-danger" role="alert">
             @foreach($errors->get('vendor_id') as $error)
@@ -269,7 +269,7 @@
                     @endforeach
                     @endif
                 </select>
-                <a href="{{ URL::to('outofservicecodes') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                <a href="{{ URL::to('outofservicecode') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 @if($errors->get('out_of_service_id'))
                 <ul class="alert alert-danger" role="alert">
                     @foreach($errors->get('out_of_service_id') as $error)
@@ -312,7 +312,7 @@
                     @endforeach
                     @endif
                 </select>
-                <a href="{{ URL::to('computertypes') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                <a href="{{ URL::to('computertype') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 @if($errors->get('computer_type_id'))
                 <ul class="alert alert-danger" role="alert">
                     @foreach($errors->get('computer_type_id') as $error)

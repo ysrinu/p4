@@ -119,7 +119,7 @@ class AssetsTableSeeder extends Seeder
                 2,
                 "Deacon",
                 "2017-10-22",
-                0,
+                1,
                 "AJU13OV8UJ",
                 2024
             ],
@@ -141,7 +141,7 @@ class AssetsTableSeeder extends Seeder
                 2,
                 "Jasper",
                 "2017-01-03",
-                1,
+                0,
                 "KGE89KI6DU",
                 2019
             ],
@@ -339,7 +339,7 @@ class AssetsTableSeeder extends Seeder
                 5,
                 "Barclay",
                 "2018-03-15",
-                1,
+                0,
                 "EQH65GTE4L",
                 2018
             ],
@@ -361,7 +361,7 @@ class AssetsTableSeeder extends Seeder
                 3,
                 "Bruno",
                 "2018-09-15",
-                1,
+                0,
                 "LAR03LAD1M",
                 2022
             ],
@@ -383,7 +383,7 @@ class AssetsTableSeeder extends Seeder
                 2,
                 "Sybill",
                 "2017-03-16",
-                0,
+                1,
                 "ZLH43DGE0L",
                 2024
             ],

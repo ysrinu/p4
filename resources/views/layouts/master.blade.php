@@ -29,7 +29,7 @@
 		<!-- Links -->
 		<ul class="navbar-nav">
 
-			<!-- Dropdown -->
+			<!-- Dropdown for Create -->
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 					<i class="fa fa-plus" aria-hidden="true"></i>
@@ -39,15 +39,28 @@
 					<a class="dropdown-item" href="/asset/create">Asset</a>
 				</div>
 			</li>
-			<!-- Dropdown -->
+			<!-- Dropdown for View-->
+			<li class="nav-item dropdown">
+
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					<i class="fa fa-table" aria-hidden="true"></i>
+					View
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="/asset">Assets</a>
+					<a class="dropdown-item" href="/assetrepairs">Asset Repairs</a>
+					<a class="dropdown-item" href="/computer">Computers</a>
+					<a class="dropdown-item" href="/warranty">Warranties</a>
+				</div>
+			</li>
+			<!-- Dropdown for Search-->
 			<li class="nav-item dropdown">
 
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 					<i class="fa fa-search" aria-hidden="true"></i>
-					View
+					Search
 				</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="/asset">Asset</a>
 				</div>
 			</li>
 		</ul>
@@ -67,7 +80,6 @@
 	</section>
 
 	<section>
-
 
 		@stack('body')
 
