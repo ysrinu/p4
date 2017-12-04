@@ -24,7 +24,7 @@ class CreateAssetRepairsTable extends Migration
 
             $table->foreign('asset_id', 'fk_asset_id_idx2')
             ->references('id')->on('assets')
-            ->onDelete('no action')
+            ->onDelete('cascade')
             ->onUpdate('no action');
     });
 }

@@ -250,7 +250,7 @@ class AssetController extends Controller
                 $asset->delete();
             }
 
-            $asset->assetrepairs()->detach();
+            //$asset->assetrepairs()->detach();
 
             $asset->delete();
             return redirect('/')->with('alert', 'Asset '.$asset->id.' Deleted.');
