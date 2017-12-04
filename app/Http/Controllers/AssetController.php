@@ -10,11 +10,10 @@ use App\Location;
 use App\Vendor;
 use App\Warranty;
 use App\OutOfServiceCode;
-use App\computerType;
+use App\ComputerType;
 
 class AssetController extends Controller
 {
-
     public function index($n = null)
     {
         if (is_null($n)) {
