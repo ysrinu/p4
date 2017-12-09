@@ -28,6 +28,8 @@
 
 		<!-- Links -->
 		<ul class="navbar-nav">
+
+			@if(Auth::check())
 			<!-- Dropdown for Create -->
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarnew" data-toggle="dropdown">
@@ -67,13 +69,32 @@
 				<div class="dropdown-menu">
 				</div>
 			</li>
-			<!-- Link for Sign in -->
+			<!-- Link for Log out -->
+			<li>
+				<form method='POST' id='logout' action='/logout'>
+					{{csrf_field()}}
+					<a class="nav-link" href='#' onClick='document.getElementById("logout").submit();'>
+						<i class="fa fa-sign-out" aria-hidden="true"></i>
+						Logout {{ $user->name }}
+					</a>
+				</form>
+			</li>
+			@else
+			<!-- Link for Registeration -->
 			<li class="nav-item">
-	          <a class="nav-link" href="/login">
-				  <i class="fa fa-sign-in" aria-hidden="true"></i>
-				  Log In
-			  </a>
-	        </li>
+				<a class="nav-link" href="/register">
+					<i class="fa fa-user-plus" aria-hidden="true"></i>
+					Register
+				</a>
+			</li>
+			<!-- Link for Log in -->
+			<li class="nav-item">
+				<a class="nav-link" href="/login">
+					<i class="fa fa-sign-in" aria-hidden="true"></i>
+					Login
+				</a>
+			</li>
+			@endif
 		</ul>
 	</nav>
 	<br>
@@ -95,8 +116,8 @@
 	</section>
 	<footer class="text-center">
 		<p>
-			<a href="http://validator.w3.org/check/referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" /></a>
-			<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+			<a href="http://validator.w3.org/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" /></a>
+			<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
 		</p>
 	</footer>
 

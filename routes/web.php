@@ -42,21 +42,35 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
-Route::get('/asset/create', 'AssetController@create');
-Route::post('/asset', 'AssetController@store');
-Route::get('/asset/{id?}', 'AssetController@index');
-Route::get('/asset/{id?}/edit', 'AssetController@edit');
-Route::put('/asset/{id?}', 'AssetController@update');
-Route::get('/asset/{id?}/delete', 'AssetController@delete');
-Route::delete('/asset/{id}', 'AssetController@destroy');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/asset/create', 'AssetController@create');
+    Route::post('/asset', 'AssetController@store');
+    Route::get('/asset/{id?}', 'AssetController@index');
+    Route::get('/asset/{id?}/edit', 'AssetController@edit');
+    Route::put('/asset/{id?}', 'AssetController@update');
+    Route::get('/asset/{id?}/delete', 'AssetController@delete');
+    Route::delete('/asset/{id}', 'AssetController@destroy');
 
-Route::get('/assetrepairs/{id?}', 'AssetRepairController@index');
-Route::get('/computer/{id?}', 'ComputerController@index');
-Route::get('/computertype/{id?}', 'ComputerTypeController@index');
-Route::get('/group/{id?}', 'GroupController@index');
-Route::get('/location/{id?}', 'LocationController@index');
-Route::get('/outofservicecode/{id?}', 'OutOfServiceCodeController@index');
-Route::get('/vendor/{id?}', 'VendorController@index');
-Route::get('/warranty/{id?}', 'WarrantyController@index');
+    Route::get('/assetrepairs/{id?}', 'AssetRepairController@index');
+    Route::get('/computer/{id?}', 'ComputerController@index');
+    Route::get('/computertype/{id?}', 'ComputerTypeController@index');
+    Route::get('/group/{id?}', 'GroupController@index');
+    Route::get('/location/{id?}', 'LocationController@index');
+    Route::get('/outofservicecode/{id?}', 'OutOfServiceCodeController@index');
+    Route::get('/vendor/{id?}', 'VendorController@index');
+    Route::get('/warranty/{id?}', 'WarrantyController@index');
+});
 
 Auth::routes();
+
+Route::get('/show-login-status', function () {
+    $user = Auth::user();
+
+    if ($user) {
+        dump('You are logged in.', $user->toArray());
+    } else {
+        dump('You are not logged in.');
+    }
+
+    return;
+});
