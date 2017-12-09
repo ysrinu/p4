@@ -33,6 +33,10 @@ class AssetController extends Controller
     {
         $asset = new Asset();
 
+        // set default values
+        $asset->quantity = 1;
+        $asset->owner = 'Alpine Academy';
+
         return view('asset.create')->with([
             'asset' => $asset,
             'groupsForDropdown' => Group::getListForDropdown(),
@@ -53,8 +57,11 @@ class AssetController extends Controller
         $asset = new Asset();
         $asset->owner = $request->input('owner');
         $asset->description = $request->input('description');
+        $asset->quantity = $request->input('quantity');
         $asset->purchase_price = $request->input('purchase_price');
         $asset->purchase_date = $request->input('purchase_date');
+        $asset->funding_source = $request->input('funding_source');
+        $asset->percent_federal_participation = $request->input('percent_federal_participation');
         $asset->serial_number = $request->input('serial_number');
         $asset->estimated_life_months = $request->input('estimated_life_months');
         $asset->assigned_to = $request->input('assigned_to');
@@ -127,8 +134,11 @@ class AssetController extends Controller
 
             $asset->owner = $request->input('owner');
             $asset->description = $request->input('description');
+            $asset->quantity = $request->input('quantity');
             $asset->purchase_price = $request->input('purchase_price');
             $asset->purchase_date = $request->input('purchase_date');
+            $asset->funding_source = $request->input('funding_source');
+            $asset->percent_federal_participation = $request->input('percent_federal_participation');
             $asset->serial_number = $request->input('serial_number');
             $asset->estimated_life_months = $request->input('estimated_life_months');
             $asset->assigned_to = $request->input('assigned_to');
@@ -176,22 +186,40 @@ class AssetController extends Controller
         */
         private function validateInput(Request $request)
         {
+
+            if (empty($request['vendor_id']) || $request['vendor_id'] == '') {
+                $request['vendor_id'] = null;
+            } else {
+                $this->validate($request, [
+                    'vendor_id' => 'numeric',
+                ]);
+            }
+
+            if (empty($request['warranty_id']) || $request['warranty_id'] == '') {
+                $request['warranty_id'] = null;
+            }else {
+                $this->validate($request, [
+                    'warranty_id' => 'numeric',
+                ]);
+            }
+
             $this->validate($request, [
                 'owner' => 'required|max:50',
                 'description' => 'max:50',
+                'quantity' => 'required|min:1|max:100',
                 'notes' => 'max:191',
                 'purchase_price' => 'required|numeric',
                 'purchase_date' => 'required|date',
-                'serial_number' => 'required|max:50',
+                'funding_source' => 'required|max:50',
+                'percent_federal_participation' => 'between:0,99.99',
+                'serial_number' => 'max:50',
                 'estimated_life_months' => 'required|numeric',
-                'tag' => 'required|alphanum|max:10',
+                'tag' => 'max:10',
                 'scheduled_retirement_year' => 'required|numeric',
                 'assigned_to' => 'required|alpha|max:30',
                 'assigned_date' => 'required|date',
                 'group_id' => 'required|numeric',
                 'location_id' => 'required|numeric',
-                'vendor_id' => 'required|numeric',
-                'warranty_id' => 'required|numeric',
             ]);
 
             if ($request->has('is_out_of_service')) {

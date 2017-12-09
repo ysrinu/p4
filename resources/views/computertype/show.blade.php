@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-View Computer
+View Computer Type {{ $computertype->id }}
 @endsection
 
 
@@ -11,11 +11,11 @@ View Computer
     <div class="container">
         <div class="row justify-content-center">
             <h2>
-                View Computer for Asset {{ $computer->asset_id }}
+                View Computer Type {{ $computertype->id }}
             </h2>
         </div>
 
-        @include('computer.detail')
+        @include('computertype.detail')
 
     </div>
 </section>

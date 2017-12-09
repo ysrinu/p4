@@ -30,3 +30,7 @@ New Asset
 </div>
 </section>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript" src="{{ URL::asset('js/asset.js') }}"></script>
+@endpush

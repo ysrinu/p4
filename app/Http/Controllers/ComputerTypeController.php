@@ -11,14 +11,13 @@ class ComputerTypeController extends Controller
     {
         if (is_null($n)) {
             // Get all rows
-            $result = ComputerType::all();
-            dump($result->toArray());
-            return;
+            $computertypes = ComputerType::all();
+            return view('computertype.list')->with(['computertypes' => $computertypes]);
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
-        $result = ComputerType::findOrFail($n);
-        dump($result->toArray());
+        $computertype = ComputerType::findOrFail($n);
+        return view('computertype.show')->with(['computertype' => $computertype]);
     }
 }

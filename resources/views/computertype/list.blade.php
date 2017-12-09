@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-View Warranties
+View Computer Types
 @endsection
 
 
@@ -11,7 +11,7 @@ View Warranties
     <div class="container">
         <div class="row justify-content-center">
             <h2>
-                View Warranties
+                View Computer Types
             </h2>
         </div>
         <div class="table-responsive">
@@ -20,20 +20,16 @@ View Warranties
                     <th>Details</th>
                     <th>Id</th>
                     <th>Description</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
                     <th>Created On</th>
                     <th>Updated On</th>
                 </tr>
-                @foreach ($warranties as $warranty)
+                @foreach ($computertypes as $computertype)
                 <tr>
-                    <td><a href="{{ URL::to('warranty/'. $warranty->id) }}" target="_blank">View</a></td>
-                    <td>{{ $warranty->id }}</td>
-                    <td>{{ $warranty->description }}</td>
-                    <td>{{ $warranty->start_date }}</td>
-                    <td>{{ $warranty->end_date }}</td>
-                    <td>{{ $warranty->created_at }}</td>
-                    <td>{{ $warranty->updated_at }}</td>
+                    <td><a href="{{ URL::to('computertype/'. $computertype->id) }}" target="_blank">View</a></td>
+                    <td>{{ $computertype->id }}</td>
+                    <td>{{ $computertype->description }}</td>
+                    <td>{{ $computertype->created_at }}</td>
+                    <td>{{ $computertype->updated_at }}</td>
                 </tr>
                 @endforeach
             </table>

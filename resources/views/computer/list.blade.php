@@ -19,7 +19,7 @@ View Computers
                 <tr>
                     <th>Details</th>
                     <th>Asset Id</th>
-                    <th>Computer Type Id</th>
+                    <th>Computer Type</th>
                     <th>Memory</th>
                     <th>Model</th>
                     <th>Operating System</th>
@@ -27,17 +27,17 @@ View Computers
                     <th>Created On</th>
                     <th>Updated On</th>
                 </tr>
-                @foreach ($computers as $rec)
+                @foreach ($computers as $computer)
                 <tr>
-                    <td><a href="{{ URL::to('computer/'. $rec->asset_id) }}" target="_blank">View</a></td>
-                    <td><a href="{{ URL::to('asset/'. $rec->asset_id) }}" target="_blank">{{ $rec->asset_id }}</a></td>
-                    <td><a href="{{ URL::to('computertype/'. $rec->computer_type_id) }}" target="_blank">{{ $rec->computer_type_id }}</a></td>
-                    <td>{{ $rec->memory }}</td>
-                    <td>{{ $rec->model }}</td>
-                    <td>{{ $rec->operating_system }}</td>
-                    <td>{{ $rec->mac_address }}</td>
-                    <td>{{ $rec->created_at }}</td>
-                    <td>{{ $rec->updated_at }}</td>
+                    <td><a href="{{ URL::to('computer/'. $computer->asset_id) }}" target="_blank">View</a></td>
+                    <td><a href="{{ URL::to('asset/'. $computer->asset_id) }}" target="_blank">{{ $computer->asset_id }}</a></td>
+                    <td><a href="{{ URL::to('computertype/'. $computer->computer_type_id) }}" target="_blank">{{ $computer->computertype->description}}</a></td>
+                    <td>{{ $computer->memory }}</td>
+                    <td>{{ $computer->model }}</td>
+                    <td>{{ $computer->operating_system }}</td>
+                    <td>{{ $computer->mac_address }}</td>
+                    <td>{{ $computer->created_at }}</td>
+                    <td>{{ $computer->updated_at }}</td>
                 </tr>
                 @endforeach
             </table>

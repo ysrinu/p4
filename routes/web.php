@@ -58,3 +58,5 @@ Route::get('/location/{id?}', 'LocationController@index');
 Route::get('/outofservicecode/{id?}', 'OutOfServiceCodeController@index');
 Route::get('/vendor/{id?}', 'VendorController@index');
 Route::get('/warranty/{id?}', 'WarrantyController@index');
+
+Auth::routes();

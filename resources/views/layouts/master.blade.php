@@ -28,7 +28,6 @@
 
 		<!-- Links -->
 		<ul class="navbar-nav">
-
 			<!-- Dropdown for Create -->
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -50,6 +49,11 @@
 					<a class="dropdown-item" href="/asset">Assets</a>
 					<a class="dropdown-item" href="/assetrepairs">Asset Repairs</a>
 					<a class="dropdown-item" href="/computer">Computers</a>
+					<a class="dropdown-item" href="/computertype">Computer Types</a>
+					<a class="dropdown-item" href="/group">Groups</a>
+					<a class="dropdown-item" href="/location">Locations</a>
+					<a class="dropdown-item" href="/outofservicecode">Out of Service Codes</a>
+					<a class="dropdown-item" href="/vendor">Vendors</a>
 					<a class="dropdown-item" href="/warranty">Warranties</a>
 				</div>
 			</li>
@@ -63,6 +67,13 @@
 				<div class="dropdown-menu">
 				</div>
 			</li>
+			<!-- Link for Sign in -->
+			<li class="nav-item">
+	          <a class="nav-link" href="/login">
+				  <i class="fa fa-sign-in" aria-hidden="true"></i>
+				  Log In
+			  </a>
+	        </li>
 		</ul>
 	</nav>
 	<br>
@@ -80,31 +91,22 @@
 	</section>
 
 	<section>
-
 		@stack('body')
+	</section>
+	<footer class="text-center">
+		<p>
+			<a href="http://validator.w3.org/check/referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" /></a>
+			<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+		</p>
+	</footer>
 
-		<footer>
-			&copy; {{ date('Y') }}
-		</footer>
+</body>
+@stack('scripts')
+</html>
 
-		<script>
-		showComputerForm();
-		function showComputerForm() {
-			if (document.getElementById("is_computer").checked == true) {
-				document.getElementById("computer_form").style.display = "block";
-			} else {
-				document.getElementById("computer_form").style.display = "none";
-			}
-		}
-
-		showOutofserviceForm();
-		function showOutofserviceForm() {
-			if (document.getElementById("is_out_of_service").checked == true) {
-				document.getElementById("outofservice_form").style.display = "block";
-			} else {
-				document.getElementById("outofservice_form").style.display = "none";
-			}
-		}
-		</script>
-	</body>
-	</html>
+<footer class="text-center">
+	<p>
+		<a href="http://validator.w3.org/check/referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" /></a>
+		<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p>
+</footer>
