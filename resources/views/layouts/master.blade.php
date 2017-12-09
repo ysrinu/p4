@@ -30,7 +30,7 @@
 		<ul class="navbar-nav">
 			<!-- Dropdown for Create -->
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarnew" data-toggle="dropdown">
 					<i class="fa fa-plus" aria-hidden="true"></i>
 					New
 				</a>
@@ -60,7 +60,7 @@
 			<!-- Dropdown for Search-->
 			<li class="nav-item dropdown">
 
-				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarsearch" data-toggle="dropdown">
 					<i class="fa fa-search" aria-hidden="true"></i>
 					Search
 				</a>
@@ -103,10 +103,3 @@
 </body>
 @stack('scripts')
 </html>
-
-<footer class="text-center">
-	<p>
-		<a href="http://validator.w3.org/check/referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" /></a>
-		<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
-	</p>
-</footer>
