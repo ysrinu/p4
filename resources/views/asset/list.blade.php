@@ -46,6 +46,7 @@ View Asset
                     <th>Model</th>
                     <th>Operating System</th>
                     <th>MAC Address</th>
+                    <th>Keywords</th>
                     <th>Created at</th>
                     <th>Updated at</th>
                 </tr>
@@ -114,6 +115,7 @@ View Asset
                     <td></td>
                     @endif
 
+                    <td>{{ implode(', ', $asset->keywords->pluck('name')->all()) }}</td>
                     <td>{{ $asset->created_at }}</td>
                     <td>{{ $asset->updated_at }}</td>
                 </tr>

@@ -51,6 +51,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/asset/{id?}/delete', 'AssetController@delete');
     Route::delete('/asset/{id}', 'AssetController@destroy');
 
+    Route::get('/computertype/create', 'ComputerTypeController@create');
+    Route::post('/computertype', 'ComputerTypeController@store');
+    Route::get('/computertype/{id?}', 'ComputerTypeController@index');
+    Route::get('/computertype/{id?}/edit', 'ComputerTypeController@edit');
+    Route::put('/computertype/{id?}', 'ComputerTypeController@update');
+
     Route::get('/assetrepairs/{id?}', 'AssetRepairController@index');
     Route::get('/computer/{id?}', 'ComputerController@index');
     Route::get('/computertype/{id?}', 'ComputerTypeController@index');
@@ -62,15 +68,3 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Auth::routes();
-
-Route::get('/show-login-status', function () {
-    $user = Auth::user();
-
-    if ($user) {
-        dump('You are logged in.', $user->toArray());
-    } else {
-        dump('You are not logged in.');
-    }
-
-    return;
-});

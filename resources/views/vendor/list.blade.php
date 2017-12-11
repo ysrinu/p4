@@ -6,7 +6,6 @@ View Vendors
 
 
 @section('content')
-
 <section >
     <div class="container">
         <div class="row justify-content-center">
@@ -50,7 +49,6 @@ View Vendors
                 @endforeach
             </table>
         </div>
-
     </div>
 </section>
 @endsection

@@ -11,6 +11,7 @@ use App\Vendor;
 use App\Warranty;
 use App\OutOfServiceCode;
 use App\ComputerType;
+use App\Keyword;
 
 class AssetController extends Controller
 {
@@ -18,13 +19,13 @@ class AssetController extends Controller
     {
         if (is_null($n)) {
             // Get all rows
-            $assets = Asset::all();
+            $assets = Asset::with('keywords')->get();
             return view('asset.list')->with(['assets' => $assets]);
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
-        $asset = Asset::findOrFail($n);
+        $asset = Asset::with('keywords')->findOrFail($n);
         return view('asset.show')->with(['asset' => $asset]);
     }
 
@@ -36,9 +37,12 @@ class AssetController extends Controller
         // set default values
         $asset->quantity = 1;
         $asset->owner = 'Alpine Academy';
+        $keywordIdsForThisAsset=[];
 
         return view('asset.create')->with([
             'asset' => $asset,
+            'keywordIdsForThisAsset' => $keywordIdsForThisAsset,
+            'keywordsForCheckboxes' => Keyword::getListForCheckboxes(),
             'groupsForDropdown' => Group::getListForDropdown(),
             'locationsForDropdown' => Location::getListForDropdown(),
             'vendorsForDropdown' => Vendor::getListForDropdown(),
@@ -81,7 +85,12 @@ class AssetController extends Controller
             $asset->out_of_service_id = null;
             $asset->out_of_service_date = null;
         }
+
+        // first save the new record, so the generated primary key (id) will be used for asset_keyword and computers table entries
         $asset->save();
+
+        //sync asset with any keywords
+        $asset->keywords()->sync($request->input('keywords'));
 
         // if Asset is computer then add Computer table entry
         if ($asset->is_computer) {
@@ -96,12 +105,14 @@ class AssetController extends Controller
         }
 
         # Redirect the user to the page to view the asset
-        return redirect('/asset/'.$asset->id)->with('alert', 'Asset '.$id.' was Added.');
+        return redirect('/asset/'.$asset->id)->with('alert', 'Asset '.$asset->id.' was Added.');
     }
 
+    // Process the form for editing an existing asset
     public function edit($id)
     {
         $asset = Asset::with([
+            'keywords',
             'computer',
             'group:id',
             'location:id',
@@ -114,8 +125,12 @@ class AssetController extends Controller
                 return redirect('/asset')->with('alert', 'Asset '.$id.' Not Found.');
             }
 
+            $keywordIdsForThisAsset = $asset->keywords->pluck('id')->all();
+
             return view('asset.edit')->with([
                 'asset' => $asset,
+                'keywordIdsForThisAsset' => $keywordIdsForThisAsset,
+                'keywordsForCheckboxes' => Keyword::getListForCheckboxes(),
                 'groupsForDropdown' => Group::getListForDropdown(),
                 'locationsForDropdown' => Location::getListForDropdown(),
                 'vendorsForDropdown' => Vendor::getListForDropdown(),
@@ -125,12 +140,13 @@ class AssetController extends Controller
             ]);
         }
 
+        // Process the form for updating an existing asset
         public function update(Request $request, $id)
         {
             // validate input
             $this->validateInput($request);
 
-            $asset = Asset::find($id);
+            $asset = Asset::with('keywords')->find($id);
 
             $asset->owner = $request->input('owner');
             $asset->description = $request->input('description');
@@ -158,12 +174,16 @@ class AssetController extends Controller
                 $asset->out_of_service_id = null;
                 $asset->out_of_service_date = null;
             }
+
+            // sync asset with any keywords
+            $asset->keywords()->sync($request->input('keywords'));
+
             $asset->save();
 
+            // find and delete any related computer record
             $computer = Computer::where('asset_id', '=', $id)->first();
-
             if ( $computer) {
-                $computer->delete();    // delete any related computer record
+                $computer->delete();
             }
 
             // if Asset is computer then add Computer table entry
@@ -272,13 +292,7 @@ class AssetController extends Controller
                 return redirect('/asset')->with('alert', 'Asset '.$id.' is Not Found.');
             }
 
-            if ($asset->computer) {
-                $asset->computer->delete();
-                $asset->delete();
-            }
-
-            //$asset->assetrepairs()->detach();
-
+            $asset->keywords()->detach();
             $asset->delete();
             return redirect('/')->with('alert', 'Asset '.$asset->id.' Deleted.');
         }

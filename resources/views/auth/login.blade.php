@@ -57,7 +57,6 @@ Log In
                     </div>
                 </div>
             </div>
-
             <div class="row justify-content-center">
                 <div class="form-group row">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i>

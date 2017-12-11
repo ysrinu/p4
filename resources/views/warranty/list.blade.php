@@ -6,7 +6,6 @@ View Warranties
 
 
 @section('content')
-
 <section >
     <div class="container">
         <div class="row justify-content-center">
@@ -38,7 +37,6 @@ View Warranties
                 @endforeach
             </table>
         </div>
-
     </div>
 </section>
 @endsection

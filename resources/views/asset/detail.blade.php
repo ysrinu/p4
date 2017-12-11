@@ -3,6 +3,11 @@
     <dt class="col-sm-3">Id</dt>
     <dd class="col-sm-9">{{ $asset->id }}</dd>
 
+    @if (count($asset->assetrepairs)>=1)
+    <dt class="col-sm-3">Repairs</dt>
+    <dd class="col-sm-9">{{ count($asset->assetrepairs) }}<a href="{{ URL::to('assetrepairs/'. $asset->id) }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a></dd>
+    @endif
+    
     <dt class="col-sm-3">Quantity</dt>
     <dd class="col-sm-9">{{ $asset->quantity }}</dd>
 
@@ -99,6 +104,9 @@
     <dt class="col-sm-3">MAC Address</dt>
     <dd class="col-sm-9">{{ $asset->computer->mac_address }}</dd>
     @endif
+
+    <dt class="col-sm-3">Keywords</dt>
+    <dd class="col-sm-9">{{ implode(', ', $asset->keywords->pluck('name')->all()) }}</dd>
 
     <dt class="col-sm-3">Created at</dt>
     <dd class="col-sm-9">{{ $asset->created_at }}</dd>

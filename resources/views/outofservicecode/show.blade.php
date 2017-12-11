@@ -6,7 +6,6 @@ View Out of Service Code {{ $outofservicecode->id }}
 
 
 @section('content')
-
 <section >
     <div class="container">
         <div class="row justify-content-center">

@@ -47,23 +47,23 @@ class CreateAssetsTable extends Migration
 
             $table->foreign('group_id', 'fk_group_id_idx')
                 ->references('id')->on('groups')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
             $table->foreign('location_id', 'fk_location_id_idx')
                 ->references('id')->on('locations')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
             $table->foreign('warranty_id', 'fk_warranty_id_idx')
                 ->references('id')->on('warranties')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
             $table->foreign('vendor_id', 'fk_vendor_id_idx')
                 ->references('id')->on('vendors')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
             $table->foreign('out_of_service_id', 'fk_out_of_service_id_idx')
                 ->references('id')->on('out_of_service_codes')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
         });
     }

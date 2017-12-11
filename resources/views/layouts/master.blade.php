@@ -14,10 +14,9 @@
 	<script src="https://use.fontawesome.com/4da62dae18.js"></script>
 
 	@stack('head')
-
 </head>
-<body>
 
+<body>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<!-- Brand -->
 		<a class="navbar-brand" href="/">
@@ -38,6 +37,7 @@
 				</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="/asset/create">Asset</a>
+					<a class="dropdown-item" href="/computertype/create">Computer Type</a>
 				</div>
 			</li>
 			<!-- Dropdown for View-->
@@ -114,13 +114,13 @@
 	<section>
 		@stack('body')
 	</section>
+
 	<footer class="text-center">
 		<p>
 			<a href="http://validator.w3.org/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" /></a>
 			<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
 		</p>
 	</footer>
-
 </body>
 @stack('scripts')
 </html>

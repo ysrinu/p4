@@ -6,7 +6,6 @@ View Out of Service Codes
 
 
 @section('content')
-
 <section >
     <div class="container">
         <div class="row justify-content-center">
@@ -34,7 +33,6 @@ View Out of Service Codes
                 @endforeach
             </table>
         </div>
-
     </div>
 </section>
 @endsection

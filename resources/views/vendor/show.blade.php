@@ -6,7 +6,6 @@ View Vendor {{ $vendor->id }}
 
 
 @section('content')
-
 <section >
     <div class="container">
         <div class="row justify-content-center">

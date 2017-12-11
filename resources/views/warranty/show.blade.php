@@ -6,7 +6,6 @@ View Warranty
 
 
 @section('content')
-
 <section >
     <div class="container">
         <div class="row justify-content-center">
@@ -15,7 +14,7 @@ View Warranty
             </h2>
         </div>
 
-@include('warranty.detail')
+        @include('warranty.detail')
 
     </div>
 </section>
