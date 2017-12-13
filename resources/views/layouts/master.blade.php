@@ -53,6 +53,7 @@
 						<a class="dropdown-item" href="/computer">Computers</a>
 						<a class="dropdown-item" href="/computertype">Computer Types</a>
 						<a class="dropdown-item" href="/group">Groups</a>
+						<a class="dropdown-item" href="/keyword">Keywords</a>
 						<a class="dropdown-item" href="/location">Locations</a>
 						<a class="dropdown-item" href="/outofservicecode">Out of Service Codes</a>
 						<a class="dropdown-item" href="/vendor">Vendors</a>

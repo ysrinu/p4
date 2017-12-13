@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/asset/{id?}', 'AssetController@update');
     Route::get('/asset/{id?}/delete', 'AssetController@delete');
     Route::delete('/asset/{id}', 'AssetController@destroy');
-    
+
     Route::get('/computertype/create', 'ComputerTypeController@create');
     Route::post('/computertype', 'ComputerTypeController@store');
     Route::get('/computertype/{id?}', 'ComputerTypeController@index');
@@ -66,6 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/outofservicecode/{id?}', 'OutOfServiceCodeController@index');
     Route::get('/vendor/{id?}', 'VendorController@index');
     Route::get('/warranty/{id?}', 'WarrantyController@index');
+    Route::get('/keyword/{id?}', 'KeywordController@index');
 });
 
 Auth::routes();
