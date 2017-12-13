@@ -1,4 +1,3 @@
-
 <dl class="row">
     <dt class="col-sm-3">Asset Id</dt>
     <dd class="col-sm-9"><a href="{{ URL::to('asset/'. $computer->asset_id) }}" target="_blank">{{ $computer->asset_id }}</a></dd>

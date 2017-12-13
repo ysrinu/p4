@@ -1,4 +1,3 @@
-
 <dl class="row">
     <dt class="col-sm-3">Id</dt>
     <dd class="col-sm-9">{{ $outofservicecode->id }}</a></dd>

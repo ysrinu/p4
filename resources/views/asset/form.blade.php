@@ -5,11 +5,11 @@
     <div class="col-sm-10">
         <input type="text" class="form-control" name="description" id="description" value='{{ old('description', $asset->description) }}' maxlength="50" placeholder="Description">
         @if($errors->get('description'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('description') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('description') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -18,11 +18,11 @@
     <div class="col-sm-10">
         <input type="number"  min="1" max="1000" class="form-control" name="quantity" id="quantity" value='{{ old('quantity', $asset->quantity) }}' placeholder="Quantity">
         @if($errors->get('quantity'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('quantity') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('quantity') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -31,11 +31,11 @@
     <div class="col-sm-10">
         <input type="number" step="0.01" class="form-control" name="purchase_price" id="purchase_price" value='{{ old('purchase_price', $asset->purchase_price) }}' placeholder="Purchase Price">
         @if($errors->get('purchase_price'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('purchase_price') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('purchase_price') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -44,11 +44,11 @@
     <div class="col-sm-10">
         <input type="date" step="0.01" class="form-control" name="purchase_date" id="purchase_date" value='{{ old('purchase_date', $asset->purchase_date) }}' placeholder="Purchase Date">
         @if($errors->get('purchase_date'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('purchase_date') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('purchase_date') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -57,11 +57,11 @@
     <div class="col-sm-10">
         <input type="text" class="form-control" name="funding_source" id="funding_source" value='{{ old('funding_source', $asset->funding_source) }}' maxlength="50" placeholder="Funding Source">
         @if($errors->get('funding_source'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('funding_source') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('funding_source') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -70,11 +70,11 @@
     <div class="col-sm-10">
         <input type="number" step="0.01" min="0" max="100" class="form-control" name="percent_federal_participation" id="percent_federal_participation" value='{{ old('percent_federal_participation', $asset->percent_federal_participation) }}' placeholder="Federal Participation (%)">
         @if($errors->get('percent_federal_participation'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('percent_federal_participation') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('percent_federal_participation') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -83,11 +83,11 @@
     <div class="col-sm-10">
         <input type="text" class="form-control" name="serial_number" id="serial_number" value='{{ old('serial_number', $asset->serial_number) }}' maxlength="50" placeholder="Serial Number">
         @if($errors->get('serial_number'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('serial_number') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('serial_number') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -96,11 +96,11 @@
     <div class="col-sm-10">
         <input type="text" class="form-control" name="notes" id="notes" value='{{ old('notes', $asset->notes) }}' maxlength="191" placeholder="Notes">
         @if($errors->get('notes'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('notes') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('notes') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -109,11 +109,11 @@
     <div class="col-sm-10">
         <input type="number" class="form-control" name="estimated_life_months" id="estimated_life_months" value='{{ old('estimated_life_months', $asset->estimated_life_months) }}' placeholder="Estimated life (months)">
         @if($errors->get('estimated_life_months'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('estimated_life_months') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('estimated_life_months') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -122,11 +122,11 @@
     <div class="col-sm-10">
         <input type="text" class="form-control" name="assigned_to" id="assigned_to" value='{{ old('assigned_to', $asset->assigned_to) }}' maxlength="30" placeholder="Assigned To">
         @if($errors->get('assigned_to'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('assigned_to') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('assigned_to') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -135,11 +135,11 @@
     <div class="col-sm-10">
         <input type="date" class="form-control" name="assigned_date" id="assigned_date" value='{{ old('assigned_date', $asset->assigned_date) }}' placeholder="Assigned Date">
         @if($errors->get('assigned_date'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('assigned_date') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('assigned_date') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -148,11 +148,11 @@
     <div class="col-sm-10">
         <input type="text" class="form-control" name="owner" id="owner" value='{{ old('owner', $asset->owner) }}' maxlength="50" placeholder="Owner">
         @if($errors->get('owner'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('owner') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('owner') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -161,11 +161,11 @@
     <div class="col-sm-10">
         <input type="text" class="form-control" name="tag" id="tag" value='{{ old('tag', $asset->tag) }}' maxlength="10" placeholder="Tag">
         @if($errors->get('tag'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('tag') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('tag') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -174,11 +174,11 @@
     <div class="col-sm-10">
         <input type="number" class="form-control"  min="2017" max="9999" name='scheduled_retirement_year' id="scheduled_retirement_year" value='{{ old('scheduled_retirement_year', $asset->scheduled_retirement_year) }}' placeholder="Scheduled Retirement Year">
         @if($errors->get('scheduled_retirement_year'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('scheduled_retirement_year') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('scheduled_retirement_year') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -188,18 +188,18 @@
         <select name="group_id">
             <option value="" selected="selected" disabled="disabled">Please choose one</option>
             @if ($groupsForDropdown->count())
-            @foreach($groupsForDropdown as $key => $val)
-            <option value="{{ $key }}" {{ old('group_id', isset($asset->group->id) ? $asset->group->id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
-            @endforeach
+                @foreach($groupsForDropdown as $key => $val)
+                    <option value="{{ $key }}" {{ old('group_id', isset($asset->group->id) ? $asset->group->id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
+                @endforeach
             @endif
         </select>
         <a href="{{ URL::to('group') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
         @if($errors->get('group_id'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('group_id') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('group_id') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -209,18 +209,18 @@
         <select name="location_id">
             <option value="" selected="selected" disabled="disabled">Please choose one</option>
             @if ($locationsForDropdown->count())
-            @foreach($locationsForDropdown as $key => $val)
-            <option value="{{ $key }}" {{ old('location_id', isset($asset->location->id) ? $asset->location->id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
-            @endforeach
+                @foreach($locationsForDropdown as $key => $val)
+                    <option value="{{ $key }}" {{ old('location_id', isset($asset->location->id) ? $asset->location->id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
+                @endforeach
             @endif
         </select>
         <a href="{{ URL::to('location') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
         @if($errors->get('location_id'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('location_id') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('location_id') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -230,18 +230,18 @@
         <select name="warranty_id">
             <option value="" selected="selected">Please choose one</option>
             @if ($warrantiesForDropdown->count())
-            @foreach($warrantiesForDropdown as $key => $val)
-            <option value="{{ $key }}" {{ old('warranty_id', isset($asset->warranty->id) ? $asset->warranty->id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
-            @endforeach
+                @foreach($warrantiesForDropdown as $key => $val)
+                    <option value="{{ $key }}" {{ old('warranty_id', isset($asset->warranty->id) ? $asset->warranty->id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
+                @endforeach
             @endif
         </select>
         <a href="{{ URL::to('warranty') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
         @if($errors->get('warranty_id'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('warranty_id') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('warranty_id') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -251,18 +251,18 @@
         <select name="vendor_id">
             <option value="" selected="selected">Please choose one</option>
             @if ($vendorsForDropdown->count())
-            @foreach($vendorsForDropdown as $key => $val)
-            <option value="{{ $key }}" {{ old('vendor_id', isset($asset->vendor->id) ? $asset->vendor->id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
-            @endforeach
+                @foreach($vendorsForDropdown as $key => $val)
+                    <option value="{{ $key }}" {{ old('vendor_id', isset($asset->vendor->id) ? $asset->vendor->id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
+                @endforeach
             @endif
         </select>
         <a href="{{ URL::to('vendor') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
         @if($errors->get('vendor_id'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('vendor_id') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('vendor_id') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -275,11 +275,11 @@
             </label>
         </div>
         @if($errors->get('is_out_of_service'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('is_out_of_service') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('is_out_of_service') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -292,11 +292,11 @@
                 <div class="col-sm-10">
                     <input type="date" class="form-control" name="out_of_service_date" id="out_of_service_date" value='{{ old('out_of_service_date', $asset->out_of_service_date) }}' placeholder="Out of Service Date">
                     @if($errors->get('out_of_service_date'))
-                    <ul class="alert alert-danger" role="alert">
-                        @foreach($errors->get('out_of_service_date') as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                        <ul class="alert alert-danger" role="alert">
+                            @foreach($errors->get('out_of_service_date') as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     @endif
                 </div>
             </div>
@@ -306,18 +306,18 @@
                     <select name="out_of_service_id">
                         <option value="" selected="selected" disabled="disabled">Please choose one</option>
                         @if ($outOfServiceCodesForDropdown->count())
-                        @foreach($outOfServiceCodesForDropdown as $key => $val)
-                        <option value="{{ $key }}" {{ old('out_of_service_id', isset($asset->outofservicecode->id) ? $asset->outofservicecode->id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
-                        @endforeach
+                            @foreach($outOfServiceCodesForDropdown as $key => $val)
+                                <option value="{{ $key }}" {{ old('out_of_service_id', isset($asset->outofservicecode->id) ? $asset->outofservicecode->id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
+                            @endforeach
                         @endif
                     </select>
                     <a href="{{ URL::to('outofservicecode') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                     @if($errors->get('out_of_service_id'))
-                    <ul class="alert alert-danger" role="alert">
-                        @foreach($errors->get('out_of_service_id') as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                        <ul class="alert alert-danger" role="alert">
+                            @foreach($errors->get('out_of_service_id') as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     @endif
                 </div>
             </div>
@@ -333,11 +333,11 @@
             </label>
         </div>
         @if($errors->get('is_computer'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('is_computer') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('is_computer') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>
@@ -351,18 +351,18 @@
                     <select name="computer_type_id">
                         <option value="" selected="selected" disabled="disabled">Please choose one</option>
                         @if ($computerTypesForDropdown->count())
-                        @foreach($computerTypesForDropdown as $key => $val)
-                        <option value="{{ $key }}" {{ old('computer_type_id', isset($asset->computer->computer_type_id) ? $asset->computer->computer_type_id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
-                        @endforeach
+                            @foreach($computerTypesForDropdown as $key => $val)
+                                <option value="{{ $key }}" {{ old('computer_type_id', isset($asset->computer->computer_type_id) ? $asset->computer->computer_type_id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
+                            @endforeach
                         @endif
                     </select>
                     <a href="{{ URL::to('computertype') }}" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                     @if($errors->get('computer_type_id'))
-                    <ul class="alert alert-danger" role="alert">
-                        @foreach($errors->get('computer_type_id') as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                        <ul class="alert alert-danger" role="alert">
+                            @foreach($errors->get('computer_type_id') as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     @endif
                 </div>
             </div>
@@ -371,11 +371,11 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="memory" id="memory" value='{{ old('memory', isset($asset->computer->memory) ? $asset->computer->memory : "") }}' maxlength="30" placeholder="Memory">
                     @if($errors->get('memory'))
-                    <ul class="alert alert-danger" role="alert">
-                        @foreach($errors->get('memory') as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                        <ul class="alert alert-danger" role="alert">
+                            @foreach($errors->get('memory') as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     @endif
                 </div>
             </div>
@@ -384,11 +384,11 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="model" id="model" value='{{ old('model', isset($asset->computer->model) ? $asset->computer->model : "") }}' maxlength="30" placeholder="Model">
                     @if($errors->get('model'))
-                    <ul class="alert alert-danger" role="alert">
-                        @foreach($errors->get('model') as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                        <ul class="alert alert-danger" role="alert">
+                            @foreach($errors->get('model') as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     @endif
                 </div>
             </div>
@@ -397,11 +397,11 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="operating_system" id="operating_system" value='{{ old('operating_system', isset($asset->computer->operating_system) ? $asset->computer->operating_system : "") }}' maxlength="30" placeholder="Operating System">
                     @if($errors->get('operating_system'))
-                    <ul class="alert alert-danger" role="alert">
-                        @foreach($errors->get('operating_system') as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                        <ul class="alert alert-danger" role="alert">
+                            @foreach($errors->get('operating_system') as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     @endif
                 </div>
             </div>
@@ -410,11 +410,11 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="mac_address" id="mac_address" value='{{ old('mac_address', isset($asset->computer->mac_address) ? $asset->computer->mac_address : "") }}' maxlength="30" placeholder="MAC Address">
                     @if($errors->get('mac_address'))
-                    <ul class="alert alert-danger" role="alert">
-                        @foreach($errors->get('mac_address') as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                        <ul class="alert alert-danger" role="alert">
+                            @foreach($errors->get('mac_address') as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     @endif
                 </div>
             </div>
@@ -426,9 +426,9 @@
     <div class="col-sm-10">
         <div class="form-check">
             @foreach ($keywordsForCheckboxes as $id => $name)
-            <input class="form-check-input" type="checkbox" name='keywords[]' id='{{ "checkbox_".$id }}' value='{{ $id }}'
-            {{ (isset($keywordIdsForThisAsset) and in_array($id, $keywordIdsForThisAsset)) ? 'CHECKED' : '' }} >
-            <label for='{{ "checkbox_".$id }}'> {{ $name }} </label> <br>
+                <input class="form-check-input" type="checkbox" name='keywords[]' id='{{ "checkbox_".$id }}' value='{{ $id }}'
+                {{ (isset($keywordIdsForThisAsset) and in_array($id, $keywordIdsForThisAsset)) ? 'CHECKED' : '' }} >
+                <label for='{{ "checkbox_".$id }}'> {{ $name }} </label> <br>
             @endforeach
         </div>
     </div>

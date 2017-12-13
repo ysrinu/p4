@@ -1,4 +1,3 @@
-
 <dl class="row">
     <dt class="col-sm-3">Asset Id</dt>
     <dd class="col-sm-9">{{ $assetrepairs->asset_id }}</dd>

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    View Warranty
+    View Asset
 @endsection
 
 
@@ -10,11 +10,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <h2>
-                    View Warranty {{ $warranty->id }}
+                    View Assets
                 </h2>
             </div>
 
-            @include('warranty.detail')
+            @include('asset.list')
 
         </div>
     </section>

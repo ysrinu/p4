@@ -5,11 +5,11 @@
     <div class="col-sm-10">
         <input type="text" class="form-control" name="description" id="description" value='{{ old('description', $computertype->description) }}' maxlength="50" placeholder="Description">
         @if($errors->get('description'))
-        <ul class="alert alert-danger" role="alert">
-            @foreach($errors->get('description') as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul class="alert alert-danger" role="alert">
+                @foreach($errors->get('description') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 </div>

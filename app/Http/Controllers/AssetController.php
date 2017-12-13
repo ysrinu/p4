@@ -20,7 +20,7 @@ class AssetController extends Controller
         if (is_null($n)) {
             // Get all rows
             $assets = Asset::with('keywords')->get();
-            return view('asset.list')->with(['assets' => $assets]);
+            return view('asset.listall')->with(['assets' => $assets]);
         }
 
         # Get row by id or
@@ -297,4 +297,86 @@ class AssetController extends Controller
             return redirect('/')->with('alert', 'Asset '.$asset->id.' Deleted.');
         }
 
+        /*
+        * Search for an asset by some search string
+        * GET
+        * /asset/search
+        */
+        public function search(Request $request)
+        {
+            $assets = [];
+            $alertMsg = "";
+
+            // if search by id
+            if(isset($_GET['submitbtn']) && ($_GET['submitbtn'] == "submit-search-by-id"))
+            {
+                if (isset($_GET['id_search_input']) && !empty($_GET['id_search_input'])) {
+                    $result = Asset::with('keywords')->find($_GET['id_search_input']);
+
+                    if($result) $assets[] = $result;
+                } else {
+                    $alertMsg = "No Id provided for search";
+                }
+
+                return view('asset.search')->with(['assets' => $assets,
+                    'alertMsg' => $alertMsg,
+                    'id_search_input' => isset($_GET['id_search_input']) ? $_GET['id_search_input'] : '',
+                    'description_search_input' => isset($_GET['description_search_input']) ? $_GET['description_search_input'] : '',
+                    'funding_source_search_input' => isset($_GET['funding_source_search_input']) ? $_GET['funding_source_search_input'] : '',
+                    'assigned_to_search_input' => isset($_GET['assigned_to_search_input']) ? $_GET['assigned_to_search_input'] : '',
+                    'owner_search_input' => isset($_GET['owner_search_input']) ? $_GET['owner_search_input'] : ''
+                ]);
+            }
+
+            // if advanced search. If no search string entered then return to search viewport
+            $searchFieldsCount = 0;    // Number of search fields used
+
+            // Run search criteria based on provided search fields
+            $results = Asset::with('keywords');
+            foreach( $_GET as $key => $val)
+            {
+                switch ( $key ) {
+                    case 'description_search_input':
+                    if (!empty($val)) {
+                        $searchFieldsCount++;
+                        $results->where('description','like','%'.$val.'%');
+                    }
+                    break;
+                    case 'funding_source_search_input':
+                    if (!empty($val)) {
+                        $searchFieldsCount++;
+                        $results->where('funding_source','like','%'.$val.'%');
+                    }
+                    break;
+                    case 'assigned_to_search_input':
+                    if (!empty($val)) {
+                        $searchFieldsCount++;
+                        $results->where('assigned_to','like','%'.$val.'%');
+                    }
+                    break;
+                    case 'owner_search_input':
+                    if (!empty($val)) {
+                        $searchFieldsCount++;
+                        $results->where('owner','like','%'.$val.'%');
+                    }
+                    break;
+                    default:
+                }
+            }
+
+            if ($searchFieldsCount > 0) {
+                $assets = $results->get(); // execute search
+            } else {
+                $alertMsg = "No Advanced Search criteria provided";
+            }
+
+            return view('asset.search')->with(['assets' => $assets,
+                'alertMsg' => $alertMsg,
+                'id_search_input' => isset($_GET['id_search_input']) ? $_GET['id_search_input'] : '',
+                'description_search_input' => isset($_GET['description_search_input']) ? $_GET['description_search_input'] : '',
+                'funding_source_search_input' => isset($_GET['funding_source_search_input']) ? $_GET['funding_source_search_input'] : '',
+                'assigned_to_search_input' => isset($_GET['assigned_to_search_input']) ? $_GET['assigned_to_search_input'] : '',
+                'owner_search_input' => isset($_GET['owner_search_input']) ? $_GET['owner_search_input'] : ''
+            ]);
     }
+}

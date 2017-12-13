@@ -43,6 +43,7 @@ Route::get('/debug', function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/asset/search', 'AssetController@search');
     Route::get('/asset/create', 'AssetController@create');
     Route::post('/asset', 'AssetController@store');
     Route::get('/asset/{id?}', 'AssetController@index');
@@ -50,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/asset/{id?}', 'AssetController@update');
     Route::get('/asset/{id?}/delete', 'AssetController@delete');
     Route::delete('/asset/{id}', 'AssetController@destroy');
-
+    
     Route::get('/computertype/create', 'ComputerTypeController@create');
     Route::post('/computertype', 'ComputerTypeController@store');
     Route::get('/computertype/{id?}', 'ComputerTypeController@index');
